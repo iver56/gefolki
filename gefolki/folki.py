@@ -4,7 +4,7 @@ from gefolki.rank import rank_inf as rank_filter_inf
 from gefolki.rank import rank_sup as rank_filter_sup
 
 
-def conv2SepMatlabbis(I, fen):
+def conv2_sep_matlab_bis(I, fen):
 
     rad = int((fen.size - 1) / 2)
     ligne = np.zeros((rad, I.shape[1]))
@@ -76,7 +76,7 @@ def EFolkiIter(I0, I1, iteration=5, radius=[8, 4], rank=4, uinit=None, vinit=Non
     for rad in radius:
 
         burt1D = np.array(np.ones([1, 2 * rad + 1])) / (2 * rad + 1)
-        W = lambda x: conv2SepMatlabbis(x, burt1D)
+        W = lambda x: conv2_sep_matlab_bis(x, burt1D)
 
         Ixx = W(Ix * Ix) + talon
         Iyy = W(Iy * Iy) + talon
@@ -171,7 +171,7 @@ def GEFolkiIter(I0, I1, iteration=5, radius=[8, 4], rank=4, uinit=None, vinit=No
     for rad in radius:
 
         burt1D = np.array(np.ones([1, 2 * rad + 1])) / (2 * rad + 1)
-        W = lambda xin: conv2SepMatlabbis(xin, burt1D)
+        W = lambda xin: conv2_sep_matlab_bis(xin, burt1D)
 
         Ixx = W(Ix * Ix)
         Iyy = W(Iy * Iy)
@@ -189,8 +189,8 @@ def GEFolkiIter(I0, I1, iteration=5, radius=[8, 4], rank=4, uinit=None, vinit=No
 
             H1w = interp2(H1, dx, dy)
 
-            crit1 = conv2SepMatlabbis(np.abs(H0 - H1w), np.ones([2 * rank + 1, 1]))
-            crit2 = conv2SepMatlabbis(np.abs(1 - H0 - H1w), np.ones([2 * rank + 1, 1]))
+            crit1 = conv2_sep_matlab_bis(np.abs(H0 - H1w), np.ones([2 * rank + 1, 1]))
+            crit2 = conv2_sep_matlab_bis(np.abs(1 - H0 - H1w), np.ones([2 * rank + 1, 1]))
 
             R1w = interp2(R1s, x + u, y + v)
             R1w_1 = interp2(R1i, x + u, y + v)
