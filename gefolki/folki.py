@@ -19,40 +19,6 @@ def conv2_sep_matlab_bis(I, fen):
     return res
 
 
-def FolkiIter(I0, I1, iteration=5, radius=8, talon=1.0e-8, uinit=None, vinit=None):
-    raise Exception("This function refers to an unresolved `gradients` function")
-
-    W = lambda x: conv2Sep(x, np.ones([2 * radius + 1, 1])) / (2 * radius + 1)
-    I0 = I0.astype(np.float32)
-    I1 = I1.astype(np.float32)
-    if uinit is None:
-        u = np.zeros(I0.shape)
-    else:
-        u = uinit
-    if vinit is None:
-        v = np.zeros(I1.shape)
-    else:
-        v = vinit
-    Ix, Iy = gradients(I0)
-    Ixx = W(Ix * Ix) + talon
-    Iyy = W(Iy * Iy) + talon
-    Ixy = W(Ix * Iy)
-    D = Ixx * Iyy - Ixy ** 2
-    cols, rows = I0.shape[1], I0.shape[0]
-    x, y = np.meshgrid(range(cols), range(rows))
-    for i in range(iteration):
-        i1w = interp2(I1, x + u, y + v)
-        it = I0 - i1w + u * Ix + v * Iy
-        Ixt = W(Ix * it)
-        Iyt = W(Iy * it)
-        u = (Iyy * Ixt - Ixy * Iyt) / D
-        v = (Ixx * Iyt - Ixy * Ixt) / D
-        unvalid = np.isnan(u) | np.isinf(u) | np.isnan(v) | np.isinf(v)
-        u[unvalid] = 0
-        v[unvalid] = 0
-    return u, v
-
-
 def EFolkiIter(I0, I1, iteration=5, radius=[8, 4], rank=4, uinit=None, vinit=None):
     talon = 1.0e-8
     if rank > 0:
