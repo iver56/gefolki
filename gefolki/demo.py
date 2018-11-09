@@ -4,11 +4,11 @@ import numpy as np
 import pylab as pl
 from scipy.ndimage import imread
 
-from .algorithm import GEFolki, EFolki
-from .tools import wrapData
+from gefolki.algorithm import GEFolki, EFolki
+from gefolki.tools import wrapData
 
 
-def demo():
+def run_demo():
     print("Starting Lidar/Radar co-registration...\n")
     radar = imread("../datasets/radar_bandep.png")
     Ilidari = imread("../datasets/lidar_georef.png")
@@ -88,8 +88,8 @@ def demo():
 
 
 if __name__ == "__main__":
-    demo()
+    run_demo()
     pl.show()
 else:
     pl.interactive(True)
-    demo()
+    run_demo()

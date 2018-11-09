@@ -1,7 +1,7 @@
-from .adapthist import *
-from .primitive import *
-from .rank import rank_inf as rank_filter_inf
-from .rank import rank_sup as rank_filter_sup
+from gefolki.adapthist import *
+from gefolki.primitive import *
+from gefolki.rank import rank_inf as rank_filter_inf
+from gefolki.rank import rank_sup as rank_filter_sup
 
 
 def conv2SepMatlabbis(I, fen):

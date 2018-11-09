@@ -1,6 +1,6 @@
 import numpy as np
 
-from .primitive import *
+from gefolki.primitive import *
 
 
 class BurtOF:
