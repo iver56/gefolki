@@ -70,9 +70,6 @@ def GEFolkiIter(I0, I1, iteration=5, radius=[8, 4], rank=4, uinit=None, vinit=No
         R1i = rank_filter_inf(I1, rank)
         R1s = rank_filter_sup(I1, rank)
 
-    H0 = I0
-    H1 = I1
-
     from skimage.transform import resize
 
     x = I0.shape[1]
