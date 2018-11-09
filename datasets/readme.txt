@@ -27,12 +27,6 @@ Lantmäteriet, Division Geodata
 Lantmäterigatan 2, 801 82 Gävle
 www.lantmateriet.se
 
-• The optical images QB and WV are images over San Francisco.
-They have been provided trough the 2012 IEEE GRSS Data Fusion Contest, to whom we
-are deeply grateful.
-They include very high spatial resolution from QuickBird and WorldView Sensors.
-They have been processed by extracting a common area, by selecting manually Control Points and by rewarping 
-the QB image over the WV, according to an affine transformation.  
 
 ---------------------------------------------------------------------------------------------------------
 Images provided in Sweden DataSets have all been post-processed by Guillaume Brigot and Elise Koeniguer in Onera.
