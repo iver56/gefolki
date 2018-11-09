@@ -4,8 +4,8 @@ import numpy as np
 def rank_sup(I, rad):
     nl, nc = I.shape
     R = np.zeros([nl, nc])
-    for i in range(-rad, rad + 1):  # indice de ligne
-        for j in range(-rad, rad + 1):  # indice de colonne
+    for i in range(-rad, rad + 1):  # row index
+        for j in range(-rad, rad + 1):  # column index
             if i != 0:
                 if i < 0:
                     tmp = np.concatenate([I[-i:, :], np.zeros([-i, nc])], axis=0)

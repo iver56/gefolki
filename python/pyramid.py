@@ -18,7 +18,6 @@ class BurtOF:
         Py0 = [I0]
         Py1 = [I1]
 
-        compt = 1
         for i in range(self.levels, 0, -1):
             Py0.append(self.pyrUp(Py0[-1]))
             Py1.append(self.pyrUp(Py1[-1]))
@@ -57,7 +56,6 @@ class BurtOF:
         )
 
         M = self.conv2SepMatlab(I, burt1D)
-        self.toto = M
         return M[::2, ::2]
 
     def pyrDown(self, I, shape):
