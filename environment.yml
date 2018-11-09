@@ -1,0 +1,15 @@
+name: gefolki
+channels:
+- defaults
+dependencies:
+- matplotlib>=2.2.0,<3
+- mkl
+- numpy>=1.14,<=1.15
+- pip>=9.0.1,<=18.1
+- python=3.6.*
+- scikit-image=0.14.0
+- scipy=0.19.1
+- zlib=1.2.11
+- pip:
+  - black==18.9b0
+  - Pillow>=5.1.0,<=5.3.0
