@@ -25,17 +25,11 @@ Plyer, A., Le Besnerais, G., & Champagnat, F. (2016). Massively parallel Lucas K
 
 ## help
 
-The source code is provided here in matlab and python under a GPL license.
+The source code is provided here in python under a GPL license.
 
 After decompression, this directory contains:
 
-- a directory "datasets" that are used in the demonstration file "main.{m, py}". Origins of the different datasets are described in the readme.txt
-- the different matlab source codes. The demonstration are proposed in the main.m file.
-- the different python source codes. The demonstration are proposed in the main.py file.
+- a directory "datasets" that are used in the demonstration file "demo.py". Origins of the different datasets are described in the readme.txt
+- the different python source codes. The demonstration are proposed in the demo.py file.
 
 In python you find a part of folki optical flow familly (folki, efolki, gefolki).
-
-
-
-
-
