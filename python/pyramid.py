@@ -1,7 +1,7 @@
-
 import numpy as np
+
 from .primitive import *
-from PIL import Image
+
 
 class BurtOF:
     def __init__(self, flow, levels=4):
@@ -9,11 +9,11 @@ class BurtOF:
         self.levels = 4
 
     def __call__(self, I0, I1, **kparams):
-        if 'levels'in kparams:
-            self.levels = kparams.pop('levels')
+        if "levels" in kparams:
+            self.levels = kparams.pop("levels")
 
-        I0 = (I0-I0.min())/(I0.max()-I0.min())
-        I1 = (I1-I1.min())/(I1.max()-I1.min())
+        I0 = (I0 - I0.min()) / (I0.max() - I0.min())
+        I1 = (I1 - I1.min()) / (I1.max() - I1.min())
 
         Py0 = [I0]
         Py1 = [I1]
@@ -27,18 +27,18 @@ class BurtOF:
         v = np.zeros(Py0[-1].shape)
 
         for i in range(self.levels, -1, -1):
-            kparams['uinit'] = u
-            kparams['vinit'] = v
+            kparams["uinit"] = u
+            kparams["vinit"] = v
             u, v = self.flow(Py0[i], Py1[i], **kparams)
             if i > 0:
-                col, row = Py0[i-1].shape[1], Py0[i-1].shape[0]
+                col, row = Py0[i - 1].shape[1], Py0[i - 1].shape[0]
                 u = 2 * self.pyrDown(u, (row, col))
                 v = 2 * self.pyrDown(v, (row, col))
         return u, v
 
     def conv2SepMatlab(self, I, fen):
 
-        rad = int((fen.size-1)/2)
+        rad = int((fen.size - 1) / 2)
         ligne = np.zeros((rad, I.shape[1]))
         I = np.append(ligne, I, axis=0)
         I = np.append(I, ligne, axis=0)
@@ -52,7 +52,9 @@ class BurtOF:
 
     def pyrUp(self, I):
         a = 0.4
-        burt1D = np.array([[1./4.-a/2., 1./4., a, 1./4., 1./4.-a/2.]])
+        burt1D = np.array(
+            [[1.0 / 4.0 - a / 2.0, 1.0 / 4.0, a, 1.0 / 4.0, 1.0 / 4.0 - a / 2.0]]
+        )
 
         M = self.conv2SepMatlab(I, burt1D)
         self.toto = M
