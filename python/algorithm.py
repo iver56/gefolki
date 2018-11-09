@@ -1,5 +1,5 @@
-from folki import GEFolkiIter, EFolkiIter, FolkiIter
-from pyramid import BurtOF
+from .folki import GEFolkiIter, EFolkiIter, FolkiIter
+from .pyramid import BurtOF
 
 GEFolki = BurtOF(GEFolkiIter)
 EFolki = BurtOF(EFolkiIter)
