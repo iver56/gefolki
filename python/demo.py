@@ -9,7 +9,7 @@ from .tools import wrapData
 
 
 def demo():
-    print("Debut recalage Lidar/Radar\n")
+    print("Starting Lidar/Radar co-registration...\n")
     radar = imread("../datasets/radar_bandep.png")
     Ilidari = imread("../datasets/lidar_georef.png")
 
@@ -44,9 +44,9 @@ def demo():
     pl.imshow(D)
     pl.title("Imfuse of RADAR and LIDAR after coregistration")
 
-    print("Fin recalage Lidar/Radar \n\n")
+    print("End of Lidar/Radar co-registration\n\n")
 
-    print("Debut recalage optique/Radar\n")
+    print("Starting optical/Radar co-registration\n")
     radar = imread("../datasets/radar_bandep.png")
     Ioptique = imread("../datasets/optiquehr_georef.png")
 
@@ -56,7 +56,7 @@ def demo():
 
     pl.figure()
     pl.imshow(Ioptique)
-    pl.title("Optique")
+    pl.title("Optical")
 
     Iradar = radar[:, :, 0]
     Iradar = Iradar.astype(np.float32)
@@ -70,7 +70,7 @@ def demo():
     N = np.sqrt(u ** 2 + v ** 2)
     pl.figure()
     pl.imshow(N)
-    pl.title("Norm of OPTIC to RADAR registration")
+    pl.title("Norm of OPTICAL to RADAR registration")
     pl.colorbar()
 
     Ioptique_resampled = wrapData(Ioptique, u, v)
@@ -78,13 +78,13 @@ def demo():
     C = np.dstack((Ioptique / 255, Iradar / 255, Ioptique / 255))
     pl.figure()
     pl.imshow(C)
-    pl.title("Imfuse of RADAR and OPTIC")
+    pl.title("Imfuse of RADAR and OPTICAL")
 
     D = np.dstack((Ioptique_resampled / 255, Iradar / 255, Ioptique_resampled / 255))
     pl.figure()
     pl.imshow(D)
     pl.title("Imfuse of RADAR and OPTIC after coregistration")
-    print("Fin recalage optique/Radar \n\n")
+    print("End of optical/Radar co-registration\n\n")
 
 
 if __name__ == "__main__":
