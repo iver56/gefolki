@@ -2,7 +2,6 @@ name: gefolki
 channels:
 - defaults
 dependencies:
-- matplotlib>=2.2.0,<3
 - mkl
 - numpy>=1.14,<=1.15
 - pip>=9.0.1,<=18.1
